@@ -16,5 +16,10 @@ python manange.py startapp "${NEW_APP_NAME}";
 ```   
 
 # Contents of a new Django App
+1. "__init__.py" defines a Python package
+2. "admin.py" settings for web app administrators
+3. "apps.py" settings for the app 
+4. "models.py" classes that will be converted to database tables by ORM
+5. "tests.py" test classes
+6. "views.py" classes to define how things are presented
 
-The Python file manage.py will create a new folder with the appropriate name. Within the 
