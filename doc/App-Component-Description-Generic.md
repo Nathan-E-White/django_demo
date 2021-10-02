@@ -14,6 +14,8 @@ single job to do.
 ```shell
 python manange.py startapp "${NEW_APP_NAME}";
 ```   
+4. Open the file "PROJECT_NAME/settings.py"
+5. Add the name of your new app to the "INSTALLED_APPS" variable.
 
 # Contents of a new Django App
 1. "__init__.py" defines a Python package
