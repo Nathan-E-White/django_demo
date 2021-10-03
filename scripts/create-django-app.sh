@@ -1,20 +1,30 @@
 #!/usr/bin/env bash
 
 source "./set-public-env.sh";
+declare CWDir;
+declare ExitCount
 
+CWDir=$(pwd);
+ExitCount=0
+
+ExitCount++;
 cd "${PROJECT_ROOT_DIR}" || {
-  printf "%s\n" "Unable to find project root dir. Bailing out now...";
-  exit 1;
+  printf "%s\n" "Unable to find project root directory: ${PROJECT_ROOT_DIR}. Bailing out now...";
+  exit $ExitCount;
 }
 
-declare manage;
-
-manage=$(find "${PROJECT_ROOT_DIR}" -name "manage.py");
-
+ExitCount++;
 if [[ $(command -v python) ]] ; then
-  python "${manage}" "${1}";
-  return 0;
+  python "${Django_Manager}" "${1}";
 else
   printf "%s\n" "Unable to locate python executable. Double check that python is installed and included in the system path.";
-  exit 2;
+  exit $ExitCount;
 fi;
+
+ExitCount++;
+cd "${CWDir}" || {
+  printf "%s\n" "Unable to cd into previous working directory: ${CWDir}. Bailing out...";
+  exit $ExitCount;
+}
+
+exit 0;
