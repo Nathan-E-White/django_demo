@@ -22,6 +22,8 @@ python manange.py startapp "${NEW_APP_NAME}";
 5. Add the name of your new app to the "INSTALLED_APPS" variable.
 
 ```python
+""" File: PROJECT_NAME/settings.py """
+# noinspection PyUnresolvedReferences
 INSTALLED_APPS = [
     'ALREADY_EXISTING_ENTRIES...',
     'NEW_APP_NAME'

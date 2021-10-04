@@ -1,13 +1,16 @@
+<!-- TODO: Merge this into the HTML file with the chart plot -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <title>Data Dashboard</title>
+    <!-- TODO: Save these in the repo so the user isn't pulling them from the CDN, although in a production app CDNs are nice -->
     <script src="https://cdn.flexmonster.com/flexmonster.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="https://cdn.flexmonster.com/demo.css"/>
 </head>
 <body>
+<!-- TODO: in the next line pivot_data is unresolved -->
 <div id="pivot-table-container" data-url="{% pivot_data %}"></div>
 <div id="pivot-chart-container"></div>
 </body>

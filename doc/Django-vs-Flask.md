@@ -5,7 +5,7 @@ Requirement 1: Django vs. Flask
 
 Option 1.A: Django:
 i.		Full-stack web framework
-ii.		Well supported, mature technology (created 2005)
+ii.	    Well-supported, mature technology (created 2005)
 iii.	Implemented in Python
 iv.		Easier to use out of the box
 v.		Ready to use admin framework
@@ -20,7 +20,7 @@ xiv.	Over 2x LOC vs Flask
 
 Option 1.B: Flask:
 i.		Light-weight extensible framework
-ii.		Well supported, mature technology (created 2010)
+ii.		Well-supported, mature technology (created 2010)
 iii.	Implemented in Python
 iv.		Easier to customize for different use cases
 v.		No admin framework included

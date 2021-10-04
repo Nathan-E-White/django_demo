@@ -15,6 +15,7 @@ cd "${PROJECT_ROOT_DIR}" || {
 
 ExitCount++;
 if [[ $(command -v python) ]] ; then
+  # shellcheck disable=SC2154
   python "${Django_Manager}" "${1}";
 else
   printf "%s\n" "Unable to locate python executable. Double check that python is installed and included in the system path.";

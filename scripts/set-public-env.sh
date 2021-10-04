@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 ## Declare project globals; intentional use of upper camel case
-declare -e Project_Root_Dir;
-declare -e Project_Main_Branch;
-declare -ae Project_Other_Branches;
-declare -e Django_Manager;
+# declare -export Project_Root_Dir;
+# declare -export Project_Main_Branch;
+# declare -ae Project_Other_Branches;
+# declare -export Django_Manager;
 
 ## Declare local variables for this script
 CWDir=.;
@@ -15,7 +15,7 @@ MTarget=.;
 MValidated=.;
 
 # Set main project root directory
-PRDTarget="D:\Software-Development\pyAppProj\analytics";
+PRDTarget="/mnt/d/Software-Development/pyAppProj/analytics/";
 
 # Set the main repository used by Git
 Project_Main_Branch="master";
@@ -27,15 +27,13 @@ MTarget="manager.py";
 # Project_Other_Branches[0]="Developers";
 # Project_Other_Branches[1]="SprintNNN";
 
-
 # Get the current working directory from the shell
 CWDir=$(pwd);
 
 # Verify that we can find the directory listed as the source root
-PRDValidated=$(find -d "${PRDTarget}");
+PRDValidated=$(find "${PRDTarget}");
 
 # TODO: could create the project root if it doesn't exist and create the Django project automatically. Right now PyCharm is doing the heavy lifting on that end.
-ExitCall++;
 if [[ ! -d "${PRDValidated}" ]] ; then
   printf "%s\n" "Could not find project root directory. Please check that it exists and try again.";
   exit $ExitCall;
@@ -45,7 +43,6 @@ fi;
 Project_Root_Dir="${PRDValidated}";
 
 # cd into the project root
-ExitCall++;
 cd "${Project_Root_Dir}" || {
   printf "%s\n" "Bad trouble in 'cd ${Project_Root_Dir}', bailing out now.";
   exit $ExitCall;
@@ -55,13 +52,11 @@ cd "${Project_Root_Dir}" || {
 MValidated=$(find "${Project_Root_Dir}" -f "${Project_Root_Dir}\\${MTarget}");
 
 # Validate the manage.py file
-ExitCall++;
 if [[ ! -f "${MValidated}" ]] ; then
   printf "%s\n" "Could not find manage.py file in ${Project_Root_Dir}. Bailing out...";
   exit $ExitCall;
 fi;
 
-ExitCall++;
 if [[ ! -s "${MValidated}" ]] ; then
   printf "%s\n" "Found manage.py file in ${Project_Root_Dir}, but it appears to be empty to the shell. Check that it was installed correctly. Bailing out...";
   exit $ExitCall;
@@ -76,7 +71,6 @@ export Project_Other_Branches;
 export Django_Manager;
 
 # Change back to the directory the shell was in before the script was called
-ExitCall++;
 cd "${CWDir}" || {
   printf "%s\n" "Bad trouble in 'cd ${CWDir}'. Bailing out now...";
   exit $ExitCall;
